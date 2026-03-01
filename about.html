@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-L20BFPVCNX"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'G-L20BFPVCNX');
+        </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me - Siddhant Kapadne</title>
+    <style>
+        @font-face {
+            font-family: 'Sora';
+            src: url('font/Sora-VariableFont_wght.ttf') format('truetype');
+            font-weight: 100 900;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'Sora';
+            src: url('font/static/Sora-Regular.ttf') format('truetype');
+            font-weight: 400;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'Sora';
+            src: url('font/static/Sora-Medium.ttf') format('truetype');
+            font-weight: 500;
+            font-style: normal;
+        }
+        :root {
+            --primary-bg: #121212;
+            --text-color: #FFFFFF;
+            --accent-color: #A0A0A0;
+            --highlight: #98ce41;
+            --grid-gap: 3rem;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            cursor: none;
+        }
+
+        .custom-cursor {
+            width: 8px;
+            height: 8px;
+            background: var(--highlight);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            transition: transform 0.3s ease;
+        }
+
+        body {
+            background-color: var(--primary-bg);
+            color: var(--text-color);
+            font-family: 'Sora', Arial, sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+            letter-spacing: -0.02em;
+        }
+
+        /* Navigation */
+        nav {
+            padding: 1rem 4rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 1.2rem;
+            font-weight: 500;
+            letter-spacing: 0;
+            color: var(--highlight);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            background: #2a2a2a;
+            border-radius: 2em;
+            box-shadow: 0 10px 40px 0 rgba(30, 41, 59, 0.06), 0 2px 4px 0 rgba(30, 41, 59, 0.019);
+            padding: 8px 25px;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-links a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 500;
+            padding: 7px 16px;
+            transition: color 0.3s ease;
+        }
+
+        .active{
+            color: var(--highlight) !important;
+        }
+
+        .nav-links a:hover {
+            color: var(--highlight);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            cursor: pointer;
+            z-index: 1000;
+        }
+
+        .hamburger span {
+            width: 30px;
+            height: 2px;
+            background: var(--text-color);
+            transition: all 0.3s ease-in-out;
+        }
+
+        /* About Section */
+        .about-section {
+            padding: 120px 4rem 4rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .about-image {
+            width: 100%;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .about-content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--highlight);
+            font-weight: 300;
+        }
+
+        .about-content p {
+            color: var(--accent-color);
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .skills {
+            margin-top: 3rem;
+        }
+
+        .skills h2 {
+            font-size: 1.5rem;
+            color: var(--text-color);
+            margin-bottom: 1rem;
+            font-weight: 300;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .skill-tag {
+            background: rgba(160, 255, 64, 0.1);
+            color: var(--highlight);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+                /* Animated Footer */
+        footer {
+            /* background: linear-gradient(135deg, #121212, #1a1a1a); */
+            padding: 4rem;
+            margin-top: 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #98ce41, #0015ff, #98ce41);
+            background-size: 200% 100%;
+            animation: gradient-slide 3s linear infinite;
+        }
+
+        @keyframes gradient-slide {
+            0% { background-position: 100% 0; }
+            100% { background-position: -100% 0; }
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .footer-section {
+            /* background: rgba(255, 255, 255, 0.03); */
+            padding: 2rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+/* 
+        .footer-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(255, 64, 129, 0.1);
+        } */
+
+        .footer-section h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(90deg, #98ce41);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 600;
+        }
+
+        .footer-section p, .footer-section a {
+            color: var(--text-color);
+            text-decoration: none;
+            display: block;
+            margin: 0.5rem 0;
+            transition: all 0.3s ease;
+            padding: 0.5rem 0;
+        }
+
+        .footer-section a:hover {
+            color: var(--highlight);
+            transform: translateX(10px);
+            text-shadow: 0 0 10px rgba(128, 255, 64, 0.5);
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 1.5rem 2rem;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                height: 100vh;
+                width: 100%;
+                background: rgba(18, 18, 18, 0.95);
+                backdrop-filter: blur(30px);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                transition: right 0.3s ease-in-out;
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .hamburger.active span:nth-child(1) {
+                transform: rotate(45deg) translate(8px, 8px);
+            }
+
+            .hamburger.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .hamburger.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(8px, -8px);
+            }
+
+            .about-section {
+                padding: 100px 2rem 2rem;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-links {
+                display: flex;
+            }
+
+            .custom-cursor {
+                display: none;
+            }
+
+            .about-section {
+                padding: 80px 1rem 1rem;
+            }
+            footer {
+                padding: 2rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="custom-cursor"></div>
+    <!-- Navigation starts -->
+    <nav>
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="nav-links">
+            <a href="index.html#work">Work</a>
+            <a class="active" href="about.html">About</a>
+            <a href="resume.html">Resume</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </nav>
+    <!-- Navigation ends -->
+
+    <section class="about-section">
+        <div class="about-grid">
+            <div class="about-image">
+                <img src="Image/sidImg.webp" alt="Siddhant Kapadne">
+            </div>
+            <div class="about-content">
+                <h1>About Me</h1>
+                <p>Hi, I'm Siddhant, a UX Designer with an engineering background. I combine analytical thinking with creative design to craft meaningful digital experiences that solve real user problems.</p>
+                <p>With experience in both engineering and design, I bring a unique perspective to every project. I believe in design that's not just beautiful, but functional and accessible to all users.</p>
+                <p>Currently based in India, ready to work as well as relocate in any part of the world.</p>
+                
+                <div class="skills">
+                    <h2>Who am I ?</h2>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Cloud Gazer</span>
+                        <span class="skill-tag">Idea Collector</span>
+                        <span class="skill-tag">frame finder</span>
+                        <span class="skill-tag">bookshop lurker</span>
+                        <span class="skill-tag">Information Gatherer</span>
+                        <span class="skill-tag">Curious Crab</span>
+                        <span class="skill-tag">map memorizer</span>
+                        <span class="skill-tag">Creative Coder</span>
+                        <span class="skill-tag">Free Thinker</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="interests">
+            <h2>My Interests</h2>
+            <div class="gallery-section">
+                <div class="gallery-category">
+                    <h3>On Repeat Music Albums</h3>
+                    <div class="gallery-grid">
+                        <div class="gallery-item">
+                            <img src="Image/Interest/al1.webp" alt="Favorite Album 1">
+                            <p>Art of Noise And What Have You <br> Done With My Body, God?</p>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="Image/Interest/al2.webp" alt="Favorite Album 2">
+                            <p>Forever Young</p>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="Image/Interest/al3.webp" alt="Favorite Album 3">
+                            <p>MCMXC a.D.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-category">
+                    <h3>Movies that I Recommend</h3>
+                    <div class="gallery-grid">
+                        <div class="gallery-item">
+                            <img src="Image/Interest/mv1.webp" alt="Favorite Movie 1" style="height: 283px;">
+                            <p>2001: a space odyssey</p>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="Image/Interest/mv2.webp" alt="Favorite Movie 2" style="height: 283px;">
+                            <p>Fantastic Planet</p>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="Image/Interest/mv3.webp" alt="Favorite Movie 3" style="height: 283px;">
+                            <p>Vanilla Sky</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-category">
+                    <h3>Fictional Books</h3>
+                    <div class="gallery-grid">
+                        <div class="gallery-item">
+                            <img src="Image/Interest/bk1.webp" alt="Favorite Book 1" style="height: 317px;">
+                            <p>Raktachandan</p>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="Image/Interest/bk2.webp" alt="Favorite Book 2" style="height: 317px;">
+                            <p>20000 leagues under the sea</p>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="Image/Interest/bk3.webp" alt="Favorite Book 3" style="height: 317px;">
+                            <p>i don't have mouth and <br> i must scream</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <style>
+            .interests {
+                margin-top: 4rem;
+                padding: 2rem 0;
+            }
+
+            .interests h2 {
+                color: var(--highlight);
+                font-size: 1.8rem;
+                margin-bottom: 2rem;
+                font-weight: 400;
+            }
+
+            .gallery-category {
+                margin-bottom: 3rem;
+            }
+
+            .gallery-category h3 {
+                color: var(--text-color);
+                font-size: 1.4rem;
+                margin-bottom: 1.5rem;
+                font-weight: 400;
+            }
+
+            .gallery-grid {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 2rem;
+            }
+
+            .gallery-item {
+                position: relative;
+                transition: transform 0.3s ease;
+            }
+
+            .gallery-item:hover {
+                transform: translateY(-5px);
+            }
+
+            .gallery-item img {
+                width: 200px;
+                height: 200px;
+                object-fit: cover;
+                border-radius: 8px;
+                margin-bottom: 0.5rem;
+            }
+
+            .gallery-item p {
+                color: var(--accent-color);
+                font-size: 0.9rem;
+                text-align: left;
+            }
+
+            @media (max-width: 768px) {
+                .gallery-grid {
+                    grid-template-columns: repeat(2, 1fr);
+                    gap: 1rem;
+                }
+            }
+
+            @media (max-width: 480px) {
+                .gallery-grid {
+                    grid-template-columns: 1fr;
+                }
+
+                .gallery-item img {
+                    height: 250px;
+                }
+            }
+        </style>
+    </section>
+
+    <!-- Footer starts -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>PAGES</h3>
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="index.html#work">Projects</a>
+                <a href="resume.html">Resume</a>
+                <a href="contact.html">Contact</a>
+            </div>
+
+            <div class="footer-section">
+                <h3>GET IN TOUCH</h3>
+                <p>Let's create something amazing together</p>
+                <a href="mailto:ksiddhant46@gmail.com">ksiddhant46@gmail.com</a>
+            </div>
+        
+            <div class="footer-section">
+                <h3>LOCATION</h3>
+                <p>Based in India</p>
+                <p>Available Worldwide</p>
+                <p>© Siddhant Kapadne</p>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer ends -->
+
+    <script>
+        document.addEventListener('mousemove', (e) => {
+            const cursor = document.querySelector('.custom-cursor');
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+        });
+
+        document.querySelectorAll('a, .skill-tag').forEach(item => {
+            item.addEventListener('mouseenter', () => {
+                document.querySelector('.custom-cursor').style.transform = 'scale(2)';
+            });
+            item.addEventListener('mouseleave', () => {
+                document.querySelector('.custom-cursor').style.transform = 'scale(1)';
+            });
+        });
+
+        // Hamburger menu functionality
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
