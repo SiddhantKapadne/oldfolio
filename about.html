@@ -33,10 +33,17 @@
             font-style: normal;
         }
         :root {
-            --primary-bg: #121212;
-            --text-color: #FFFFFF;
-            --accent-color: #A0A0A0;
-            --highlight: #98ce41;
+            /* Light, clear system with orange CTAs */
+            --primary-bg: #FFFFFF;
+            --secondary-bg: #F5F5F7;
+            --elevated-bg: #FFFFFF;
+            --border-subtle: #E5E5EA;
+            --text-color: #111111;
+            --accent-color: #6E6E73;
+            --muted-text: #8E8E93;
+            --cta-bg: #FF9500;
+            --cta-bg-hover: #FFB340;
+            --cta-text: #FFFFFF;
             --grid-gap: 3rem;
         }
 
@@ -50,7 +57,7 @@
         .custom-cursor {
             width: 8px;
             height: 8px;
-            background: var(--highlight);
+            background: #111111;
             border-radius: 50%;
             position: fixed;
             pointer-events: none;
@@ -77,26 +84,18 @@
             z-index: 100;
         }
 
-        .logo {
-            font-size: 1.2rem;
-            font-weight: 500;
-            letter-spacing: 0;
-            color: var(--highlight);
-            text-decoration: none;
-        }
-
         .nav-links {
             display: flex;
             gap: 20px;
-            background: #2a2a2a;
+            background: rgba(248, 248, 250, 0.92);
             border-radius: 2em;
-            box-shadow: 0 10px 40px 0 rgba(30, 41, 59, 0.06), 0 2px 4px 0 rgba(30, 41, 59, 0.019);
+            box-shadow: none;
             padding: 8px 25px;
             backdrop-filter: blur(10px);
         }
 
         .nav-links a {
-            color: var(--text-color);
+            color: var(--accent-color);
             text-decoration: none;
             font-size: 1rem;
             font-weight: 500;
@@ -104,12 +103,12 @@
             transition: color 0.3s ease;
         }
 
-        .active{
-            color: var(--highlight) !important;
+        .nav-links a:hover {
+            color: var(--cta-bg);
         }
 
-        .nav-links a:hover {
-            color: var(--highlight);
+        .nav-links a.active {
+            color: var(--cta-bg);
         }
 
         .hamburger {
@@ -156,12 +155,12 @@
         .about-content h1 {
             font-size: 2.5rem;
             margin-bottom: 1.5rem;
-            color: var(--highlight);
+            color: var(--text-color);
             font-weight: 300;
         }
 
         .about-content p {
-            color: var(--accent-color);
+            color: var(--muted-text);
             margin-bottom: 1.5rem;
             font-size: 1.1rem;
             line-height: 1.8;
@@ -185,8 +184,8 @@
         }
 
         .skill-tag {
-            background: rgba(160, 255, 64, 0.1);
-            color: var(--highlight);
+            background: var(--secondary-bg);
+            color: var(--accent-color);
             padding: 0.5rem 1rem;
             border-radius: 20px;
             font-size: 0.9rem;
@@ -194,7 +193,6 @@
 
                 /* Animated Footer */
         footer {
-            /* background: linear-gradient(135deg, #121212, #1a1a1a); */
             padding: 4rem;
             margin-top: 4rem;
             position: relative;
@@ -207,15 +205,8 @@
             top: 0;
             left: 0;
             right: 0;
-            height: 2px;
-            background: linear-gradient(90deg, #98ce41, #0015ff, #98ce41);
-            background-size: 200% 100%;
-            animation: gradient-slide 3s linear infinite;
-        }
-
-        @keyframes gradient-slide {
-            0% { background-position: 100% 0; }
-            100% { background-position: -100% 0; }
+            height: 1px;
+            background: linear-gradient(90deg, #E5E5EA, #F2F2F7, #E5E5EA);
         }
 
         .footer-content {
@@ -229,25 +220,22 @@
             padding: 2rem;
             border-radius: 15px;
             backdrop-filter: blur(10px);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: transform 0.3s ease;
         }
 /* 
         .footer-section:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(255, 64, 129, 0.1);
         } */
 
         .footer-section h3 {
             font-size: 1.5rem;
             margin-bottom: 1rem;
-            background: linear-gradient(90deg, #98ce41);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: var(--text-color);
             font-weight: 600;
         }
 
         .footer-section p, .footer-section a {
-            color: var(--text-color);
+            color: var(--muted-text);
             text-decoration: none;
             display: block;
             margin: 0.5rem 0;
@@ -256,9 +244,9 @@
         }
 
         .footer-section a:hover {
-            color: var(--highlight);
+            color: var(--cta-bg);
             transform: translateX(10px);
-            text-shadow: 0 0 10px rgba(128, 255, 64, 0.5);
+            text-shadow: none;
         }
 
         @media (max-width: 768px) {
@@ -442,7 +430,7 @@
             }
 
             .interests h2 {
-                color: var(--highlight);
+                color: var(--text-color);
                 font-size: 1.8rem;
                 margin-bottom: 2rem;
                 font-weight: 400;
@@ -483,7 +471,7 @@
             }
 
             .gallery-item p {
-                color: var(--accent-color);
+                color: var(--muted-text);
                 font-size: 0.9rem;
                 text-align: left;
             }
