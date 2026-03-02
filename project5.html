@@ -33,10 +33,17 @@
             font-style: normal;
         }
         :root {
-            --primary-bg: #121212;
-            --text-color: #FFFFFF;
-            --accent-color: #A0A0A0;
-            --highlight: #98ce41;
+            /* Light, clear system with orange CTAs */
+            --primary-bg: #FFFFFF;
+            --secondary-bg: #F5F5F7;
+            --elevated-bg: #FFFFFF;
+            --border-subtle: #E5E5EA;
+            --text-color: #111111;
+            --accent-color: #6E6E73;
+            --muted-text: #8E8E93;
+            --cta-bg: #FF9500;
+            --cta-bg-hover: #FFB340;
+            --cta-text: #FFFFFF;
             --grid-gap: 3rem;
         }
 
@@ -68,15 +75,15 @@
         .nav-links {
             display: flex;
             gap: 20px;
-            background: #2a2a2a;
+            background: rgba(248, 248, 250, 0.92);
             border-radius: 2em;
-            box-shadow: 0 10px 40px 0 rgba(30, 41, 59, 0.06), 0 2px 4px 0 rgba(30, 41, 59, 0.019);
+            box-shadow: none;
             padding: 8px 25px;
             backdrop-filter: blur(10px);
         }
 
         .nav-links a {
-            color: var(--text-color);
+            color: var(--accent-color);
             text-decoration: none;
             font-size: 1rem;
             font-weight: 500;
@@ -85,7 +92,11 @@
         }
 
         .nav-links a:hover {
-            color: var(--highlight);
+            color: var(--cta-bg);
+        }
+
+        .nav-links a.active {
+            color: var(--cta-bg);
         }
 
         .hamburger {
@@ -183,15 +194,8 @@
             top: 0;
             left: 0;
             right: 0;
-            height: 2px;
-            background: linear-gradient(90deg, #98ce41, #0015ff, #98ce41);
-            background-size: 200% 100%;
-            animation: gradient-slide 3s linear infinite;
-        }
-
-        @keyframes gradient-slide {
-            0% { background-position: 100% 0; }
-            100% { background-position: -100% 0; }
+            height: 1px;
+            background: linear-gradient(90deg, #E5E5EA, #F2F2F7, #E5E5EA);
         }
 
         .footer-content {
@@ -204,20 +208,18 @@
             padding: 2rem;
             border-radius: 15px;
             backdrop-filter: blur(10px);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: transform 0.3s ease;
         }
 
         .footer-section h3 {
             font-size: 1.5rem;
             margin-bottom: 1rem;
-            background: linear-gradient(90deg, #98ce41);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: var(--text-color);
             font-weight: 600;
         }
 
         .footer-section p, .footer-section a {
-            color: var(--text-color);
+            color: var(--muted-text);
             text-decoration: none;
             display: block;
             margin: 0.5rem 0;
@@ -226,9 +228,9 @@
         }
 
         .footer-section a:hover {
-            color: var(--highlight);
+            color: var(--cta-bg);
             transform: translateX(10px);
-            text-shadow: 0 0 10px rgba(128, 255, 64, 0.5);
+            text-shadow: none;
         }
 
         @media (max-width: 1024px) {
@@ -251,12 +253,9 @@
             width: 44px;
             height: 44px;
             border-radius: 50%;
-            background: #2a2a2a;
-            color: var(--text-color);
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 10px 40px 0 rgba(30, 41, 59, 0.18), 0 2px 4px 0 rgba(30, 41, 59, 0.15);
             opacity: 0;
             transform: translateY(10px);
             transition: opacity 0.25s ease, transform 0.25s ease, background 0.2s ease;
@@ -271,7 +270,6 @@
         }
 
         .scroll-top:hover {
-            background: #3a3a3a;
         }
 
         .scroll-top svg {
@@ -292,7 +290,7 @@
             <span></span>
         </div>
         <div class="nav-links">
-            <a href="index.html#work">Work</a>
+            <a class="active" href="index.html#work">Work</a>
             <a href="about.html">About</a>
             <a href="resume.html">Resume</a>
             <a href="contact.html">Contact</a>
